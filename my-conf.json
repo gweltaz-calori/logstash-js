@@ -1,0 +1,15 @@
+{
+  "input": {
+    "file": {
+      "path": "D:/Development/logstash-js/dataset/myFile.csv"
+    }
+  },
+  "transform": {
+    "csv": {
+      "delimiter": ","
+    }
+  },
+  "output": {
+    "debug": true
+  }
+}
