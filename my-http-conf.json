@@ -1,0 +1,11 @@
+{
+  "input": {
+    "http": {
+      "path": "https://jsonplaceholder.typicode.com/todos",
+      "method": "GET"
+    }
+  },
+  "output": {
+    "debug": true
+  }
+}
