@@ -1,0 +1,21 @@
+{
+  "input": {
+    "mysql": {
+      "user": "root",
+      "password": "",
+      "host": "localhost",
+      "database": "logstash",
+      "query": "SELECT * FROM mytable"
+    }
+  },
+  "output": {
+    "debug": true,
+    "elasticsearch": {
+      "protocol": "http",
+      "host": "localhost:9200",
+      "user": "",
+      "password": "",
+      "index": "test_index"
+    }
+  }
+}

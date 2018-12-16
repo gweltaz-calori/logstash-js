@@ -1,0 +1,15 @@
+{
+  "input": {
+    "mongodb": {
+      "user": "",
+      "password": "",
+      "host": "localhost",
+      "database": "mydatabase",
+      "collection": "mycollection",
+      "query": "{}"
+    }
+  },
+  "output": {
+    "debug": true
+  }
+}

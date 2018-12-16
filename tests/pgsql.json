@@ -1,0 +1,14 @@
+{
+  "input": {
+    "pgsql": {
+      "user": "root",
+      "password": "",
+      "host": "localhost",
+      "database": "logstash",
+      "query": "SELECT * FROM mytable"
+    }
+  },
+  "output": {
+    "debug": true
+  }
+}
