@@ -1,0 +1,22 @@
+{
+  "input": {
+    "mongodb": {
+      "user": "",
+      "password": "",
+      "host": "localhost",
+      "database": "mydatabase",
+      "collection": "mycollection",
+      "query": "{}"
+    }
+  },
+  "transform": {
+    "mutate": {
+      "rename_field": {
+        "_id": "id"
+      }
+    }
+  },
+  "output": {
+    "debug": true
+  }
+}

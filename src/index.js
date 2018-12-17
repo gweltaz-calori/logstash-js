@@ -10,6 +10,7 @@ const FileOutput = require("./output/FileOutput");
 const ElasticSearchOutput = require("./output/ElasticSearchOutput");
 const ReadLineTransform = require("./transform/ReadLineTransform");
 const CsvTransform = require("./transform/CsvTransform");
+const MutateTransform = require("./transform/MutateTransform");
 
 const STREAMS = {
   input: {
@@ -20,7 +21,8 @@ const STREAMS = {
     mongodb: MongodbInput
   },
   transform: {
-    csv: CsvTransform
+    csv: CsvTransform,
+    mutate: MutateTransform
   },
   output: {
     file: FileOutput,

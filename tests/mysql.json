@@ -15,7 +15,8 @@
       "host": "localhost:9200",
       "user": "",
       "password": "",
-      "index": "test_index"
+      "index": "test_index",
+      "document_id": "id"
     }
   }
 }

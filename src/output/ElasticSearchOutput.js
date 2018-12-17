@@ -8,22 +8,28 @@ module.exports = class ElasticSearchOuput extends stream.Writable {
     user = null,
     password = null,
     index = null,
-    protocol = "http"
+    protocol = "http",
+    document_id = null
   } = {}) {
     super({ objectMode: true });
     this.client = new elasticsearch.Client({
       host: `${protocol}://${user}:${password}@${host}`
     });
     this.index = index;
+    this.document_id = document_id;
   }
 
   _write(chunk, encoding, callback) {
     const chunkString = chunk.toString("utf-8");
+
+    const indexBody = { index: { _index: this.index, _type: "_doc" } };
+
+    if (this.document_id) {
+      indexBody._id = this.document_id;
+    }
+
     this.client.bulk({
-      body: [
-        { index: { _index: this.index, _type: "_doc" } },
-        JSON.parse(chunkString)
-      ]
+      body: [indexBody, JSON.parse(chunkString)]
     });
     callback();
   }
