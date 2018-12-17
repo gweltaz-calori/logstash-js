@@ -11,7 +11,8 @@ module.exports = class PgsqlInput extends stream.Readable {
     port = 5432,
     password,
     database,
-    query = ""
+    query = "",
+    schedule = null
   } = {}) {
     super({ objectMode: true });
     const pool = new Pool({
@@ -23,6 +24,18 @@ module.exports = class PgsqlInput extends stream.Readable {
     });
 
     var query = new QueryStream(query);
+    this.find(query);
+
+    if (schedule) {
+      if (schedule.every) {
+        setInterval(() => {
+          this.find(query);
+        }, TimerParser.parse(schedule.every));
+      }
+    }
+  }
+
+  find(query) {
     var stream = pool.query(query);
     stream.on("data", row => {
       this.push(JSON.stringify(row));

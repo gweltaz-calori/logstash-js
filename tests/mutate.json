@@ -13,7 +13,11 @@
     "mutate": {
       "rename_field": {
         "_id": "id"
-      }
+      },
+      "add_field": {
+        "my_super_field": "aa"
+      },
+      "remove_field": ["name"]
     }
   },
   "output": {

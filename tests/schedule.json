@@ -1,0 +1,29 @@
+{
+  "input": {
+    "mongodb": {
+      "user": "",
+      "password": "",
+      "host": "localhost",
+      "database": "mydatabase",
+      "collection": "mycollection",
+      "query": "{}",
+      "schedule": {
+        "every": "2s"
+      }
+    }
+  },
+  "transform": {
+    "mutate": {
+      "rename_field": {
+        "_id": "id"
+      },
+      "add_field": {
+        "my_super_field": "aa"
+      },
+      "remove_field": ["name"]
+    }
+  },
+  "output": {
+    "debug": true
+  }
+}
