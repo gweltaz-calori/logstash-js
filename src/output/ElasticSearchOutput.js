@@ -22,14 +22,16 @@ module.exports = class ElasticSearchOuput extends stream.Writable {
   _write(chunk, encoding, callback) {
     const chunkString = chunk.toString("utf-8");
 
+    const doc = JSON.parse(chunkString);
+
     const indexBody = { index: { _index: this.index, _type: "_doc" } };
 
     if (this.document_id) {
-      indexBody._id = this.document_id;
+      indexBody.index._id = doc[this.document_id];
     }
 
     this.client.bulk({
-      body: [indexBody, JSON.parse(chunkString)]
+      body: [indexBody, doc]
     });
     callback();
   }
