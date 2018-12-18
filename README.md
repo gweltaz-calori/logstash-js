@@ -330,3 +330,31 @@ Props
   }
 }
 ```
+
+## Environnement variables
+
+You can use `${MY_VARIABLE}` to retrieve an environnement variable
+
+```json
+{
+  "input": {
+    "mysql": {
+      "user": "${MYSQL_USER}",
+      "password": "",
+      "host": "${MYSQL_HOST}",
+      "database": "logstash",
+      "query": "SELECT * FROM mytable"
+    }
+  },
+  "output": {
+    "debug": true,
+    "elasticsearch": {
+      "protocol": "http",
+      "host": "localhost:9200",
+      "user": "",
+      "password": "",
+      "index": "test_index"
+    }
+  }
+}
+```
