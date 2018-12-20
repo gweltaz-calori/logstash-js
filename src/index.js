@@ -39,14 +39,15 @@ function parseEnvVariables(obj) {
     if (typeof value === "object") {
       parseEnvVariables(value);
     } else {
-      const groups = value.match(/\${(.+)}/);
-      if (groups !== null) {
-        obj[key] = process.env[groups[1]];
-        if (!obj[key]) {
+      let matches = [];
+      const regex = /\${([a-zA-Z0-9_]+)}/g;
+      while ((matches = regex.exec(value))) {
+        if (!process.env[matches[1]]) {
           throw new Error(
-            `[ERROR] Environnement variable ${groups[1]} not found`
+            `[ERROR] Environnement variable ${matches[1]} not found`
           );
         }
+        obj[key] = obj[key].replace(matches[0], process.env[matches[1]]);
       }
     }
   }
@@ -81,5 +82,4 @@ function parseConfig() {
     mainTransformStream.pipe(outputStream);
   }
 }
-
 parseConfig();
