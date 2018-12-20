@@ -1,6 +1,6 @@
 {
   "name": "logstash-js",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "",
   "main": "index.js",
   "scripts": {
@@ -17,6 +17,7 @@
     "mongodb": "^3.1.10",
     "mysql": "^2.16.0",
     "pg": "^7.7.1",
-    "pg-query-stream": "^1.1.2"
+    "pg-query-stream": "^1.1.2",
+    "stream-json": "^1.1.4"
   }
 }

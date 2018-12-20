@@ -1,0 +1,10 @@
+{
+  "input": {
+    "json": {
+      "path": "/dataset/myjson.json"
+    }
+  },
+  "output": {
+    "debug": true
+  }
+}

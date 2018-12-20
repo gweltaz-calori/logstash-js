@@ -1,6 +1,7 @@
 #!/usr/bin/env node
 
 const FileInput = require("./input/FileInput");
+const JsonInput = require("./input/JsonInput");
 const HttpInput = require("./input/HttpInput");
 const MysqlInput = require("./input/MysqlInput");
 const PgsqlInput = require("./input/PgsqlInput");
@@ -14,6 +15,7 @@ const MutateTransform = require("./transform/MutateTransform");
 
 const STREAMS = {
   input: {
+    json: JsonInput,
     file: FileInput,
     http: HttpInput,
     mysql: MysqlInput,
